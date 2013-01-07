@@ -10,7 +10,7 @@ WebService::Mandrill - an interface to mandrillapp.com's RESTful Web API using W
 
 =head1 VERSION
 
-Version 0.1
+Version 0.1.1
 
 =cut
 
