@@ -110,26 +110,6 @@ has 'commands' => (
     },
 );
 
-sub commands {
-    my ($self) = @_;
-    return $self->commands;
-}
-
-sub BUILD {
-    my ($self) = @_;
-
-    $self->user_agent(__PACKAGE__ . ' ' . $VERSION);
-    $self->content_type('application/json');
-    $self->default_method('POST');
-    $self->extension('json');
-    $self->base_url('https://mandrillapp.com/api/1.0');
-    $self->auth_type('hash_key');
-
-    return $self;
-}
-
-1;
-
 =head1 SYNOPSIS
 
 Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index.html>
@@ -213,6 +193,34 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 =head2 inbound_routes
 
 =head2 inbound_raw
+
+=head1 INTERNALS
+
+=cut
+
+sub commands {
+    my ($self) = @_;
+    return $self->commands;
+}
+
+=head2 BUILD
+
+basic configuration for the client API happens usually in the BUILD method when using Web::API
+
+=cut
+
+sub BUILD {
+    my ($self) = @_;
+
+    $self->user_agent(__PACKAGE__ . ' ' . $VERSION);
+    $self->content_type('application/json');
+    $self->default_method('POST');
+    $self->extension('json');
+    $self->base_url('https://mandrillapp.com/api/1.0');
+    $self->auth_type('hash_key');
+
+    return $self;
+}
 
 =head1 AUTHOR
 
