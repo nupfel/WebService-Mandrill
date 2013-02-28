@@ -10,11 +10,11 @@ WebService::Mandrill - an interface to mandrillapp.com's RESTful Web API using W
 
 =head1 VERSION
 
-Version 0.1.1
+Version 0.2
 
 =cut
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 has 'commands' => (
     is      => 'rw',
@@ -25,14 +25,14 @@ has 'commands' => (
             user_info    => { path => 'users/info' },
             user_senders => { path => 'users/senders' },
             send         => {
-                path        => 'messages/send',
-                mandatory   => [ 'subject', 'from_email', 'to' ],
-                wrapper_key => 'message',
+                path      => 'messages/send',
+                mandatory => [ 'subject', 'from_email', 'to' ],
+                wrapper   => 'message',
             },
             send_raw => {
-                path        => 'messages/send-raw',
-                mandatory   => ['raw_message'],
-                wrapper_key => 'message',
+                path      => 'messages/send-raw',
+                mandatory => ['raw_message'],
+                wrapper   => 'message',
             },
             parse => {
                 path      => 'messages/parse',
