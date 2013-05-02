@@ -6,7 +6,7 @@ WebService::Mandrill - WebService::Mandrill - an interface to mandrillapp.com's 
 
 =head1 VERSION
 
-version v0.1
+version 0.3
 
 =head1 SYNOPSIS
 
