@@ -1,20 +1,99 @@
 package WebService::Mandrill;
 
 use 5.010;
-use Any::Moose;
+use Mouse;
+
+# ABSTRACT: WebService::Mandrill - an interface to mandrillapp.com's RESTful Web API using Web::API
+
+# VERSION
+
 with 'Web::API';
 
-=head1 NAME
+=head1 SYNOPSIS
 
-WebService::Mandrill - an interface to mandrillapp.com's RESTful Web API using Web::API
+Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index.html>
 
-=head1 VERSION
+    use WebService::Mandrill;
+    
+    my $mandrill = WebService::Mandrill->new(
+        debug   => 1,
+        api_key => '12345678-9abc-def0-1234-56789abcdef0',
+    );
+    
+    my $response = $mandrill->send(
+        subject      => "h4x0r",
+        from_email   => "mail@example.com",
+        text         => "what zee fug",
+        track_opens  => 1,
+        track_clicks => 1,
+        to => [
+            { email => 'mail@example.com' }
+        ],
+    );
 
-Version 0.2.2
+=head1 SUBROUTINES/METHODS
+
+=head2 ping
+
+=head2 ping2
+
+=head2 user_info
+
+=head2 user_senders
+
+=head2 send
+
+=head2 send_raw
+
+=head2 parse
+
+=head2 search
+
+=head2 tags
+
+=head2 tag
+
+=head2 delete_tag
+
+=head2 tag_history
+
+=head2 all_tag_history
+
+=head2 rejects
+
+=head2 delete_reject
+
+=head2 senders
+
+=head2 sender
+
+=head2 sender_domains
+
+=head2 sender_history
+
+=head2 urls
+
+=head2 search_urls
+
+=head2 url_history
+
+=head2 webhooks
+
+=head2 webhook
+
+=head2 add_webhook
+
+=head2 update_webhook
+
+=head2 delete_webhook
+
+=head2 inbound_domains
+
+=head2 inbound_routes
+
+=head2 inbound_raw
 
 =cut
-
-our $VERSION = '0.2';
 
 has 'commands' => (
     is      => 'rw',
@@ -110,90 +189,6 @@ has 'commands' => (
     },
 );
 
-=head1 SYNOPSIS
-
-Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index.html>
-
-    use WebService::Mandrill;
-    
-    my $mandrill = WebService::Mandrill->new(
-        debug   => 1,
-        api_key => '12345678-9abc-def0-1234-56789abcdef0',
-    );
-    
-    my $response = $mandrill->send(
-        subject      => "h4x0r",
-        from_email   => "mail@example.com",
-        text         => "what zee fug",
-        track_opens  => 1,
-        track_clicks => 1,
-        to => [
-            { email => 'mail@example.com' }
-        ],
-    );
-
-=head1 SUBROUTINES/METHODS
-
-=head2 ping
-
-=head2 ping2
-
-=head2 user_info
-
-=head2 user_senders
-
-=head2 send
-
-=head2 send_raw
-
-=head2 parse
-
-=head2 search
-
-=head2 tags
-
-=head2 tag
-
-=head2 delete_tag
-
-=head2 tag_history
-
-=head2 all_tag_history
-
-=head2 rejects
-
-=head2 delete_reject
-
-=head2 senders
-
-=head2 sender
-
-=head2 sender_domains
-
-=head2 sender_history
-
-=head2 urls
-
-=head2 search_urls
-
-=head2 url_history
-
-=head2 webhooks
-
-=head2 webhook
-
-=head2 add_webhook
-
-=head2 update_webhook
-
-=head2 delete_webhook
-
-=head2 inbound_domains
-
-=head2 inbound_routes
-
-=head2 inbound_raw
-
 =head1 INTERNALS
 
 =cut
@@ -222,15 +217,10 @@ sub BUILD {
     return $self;
 }
 
-=head1 AUTHOR
-
-Tobias Kirschstein, C<< <lev at cpan.org> >>
-
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-webservice-mandrill at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-Mandrill>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests on GitHub's issue tracker L<https://github.com/nupfel/WebService-Mandrill/issues>.
+
 
 =head1 SUPPORT
 
@@ -238,38 +228,28 @@ You can find documentation for this module with the perldoc command.
 
     perldoc WebService::Mandrill
 
+
 You can also look for information at:
 
 =over 4
 
-=item * RT: CPAN's request tracker (report bugs here)
+=item * GitHub repository
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-Mandrill>
+L<https://github.com/nupfel/WebService-Mandrill>
+
+=item * MetaCPAN
+
+L<https://metacpan.org/module/WebService::Mandrill>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/WebService-Mandrill>
+L<http://annocpan.org/dist/WebService::Mandrill>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/WebService-Mandrill>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/WebService-Mandrill/>
+L<http://cpanratings.perl.org/d/WebService::Mandrill>
 
 =back
-
-=head1 LICENSE AND COPYRIGHT
-
-Copyright 2013 Tobias Kirschstein.
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See http://dev.perl.org/licenses/ for more information.
-
 
 =cut
 
