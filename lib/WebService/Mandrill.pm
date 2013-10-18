@@ -43,6 +43,8 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 
 =head2 send
 
+=head2 send_template
+
 =head2 send_raw
 
 =head2 parse
@@ -112,6 +114,10 @@ has 'commands' => (
                 path      => 'messages/send-raw',
                 mandatory => ['raw_message'],
                 wrapper   => 'message',
+            },
+            send_template => {
+                path      => 'messages/send-template',
+                mandatory => [ 'template_name', 'template_content', 'message' ],
             },
             parse => {
                 path      => 'messages/parse',
@@ -207,7 +213,7 @@ basic configuration for the client API happens usually in the BUILD method when 
 sub BUILD {
     my ($self) = @_;
 
-    $self->user_agent(__PACKAGE__ . ' ' . $VERSION);
+    $self->user_agent(__PACKAGE__ . ' ' . $WebService::Mandrill::VERSION);
     $self->content_type('application/json');
     $self->default_method('POST');
     $self->extension('json');
