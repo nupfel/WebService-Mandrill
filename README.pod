@@ -6,7 +6,7 @@ WebService::Mandrill - WebService::Mandrill - an interface to mandrillapp.com's 
 
 =head1 VERSION
 
-version 0.3
+version 0.4
 
 =head1 SYNOPSIS
 
@@ -41,6 +41,8 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 =head2 user_senders
 
 =head2 send
+
+=head2 send_template
 
 =head2 send_raw
 
