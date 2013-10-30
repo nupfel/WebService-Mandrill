@@ -213,6 +213,7 @@ sub BUILD {
     my ($self) = @_;
 
     $self->user_agent(__PACKAGE__ . ' ' . $WebService::Mandrill::VERSION);
+    $self->strict_ssl(1);
     $self->content_type('application/json');
     $self->default_method('POST');
     $self->extension('json');
