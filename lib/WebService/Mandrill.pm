@@ -113,7 +113,6 @@ has 'commands' => (
             send_raw => {
                 path      => 'messages/send-raw',
                 mandatory => ['raw_message'],
-                wrapper   => 'message',
             },
             send_template => {
                 path      => 'messages/send-template',
