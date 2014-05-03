@@ -1,5 +1,6 @@
 package WebService::Mandrill;
-
+use strict;
+use warnings;
 use 5.010;
 use Mouse;
 
@@ -95,6 +96,20 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 
 =head2 inbound_raw
 
+=head2 templates
+
+=head2 add_template
+
+=head2 get_template
+
+=head2 update_template
+
+=head2 publish_template
+
+=head2 delete_template
+
+=head2 render_template
+
 =cut
 
 has 'commands' => (
@@ -189,6 +204,31 @@ has 'commands' => (
             inbound_raw => {
                 path      => 'inbound/send-raw',
                 mandatory => ['raw_message'],
+            },
+            templates => { path => 'templates/list' },
+            add_template => {
+                path      => 'templates/add',
+                mandatory => ['name'],
+            },
+            get_template => {
+                path      => 'templates/info',
+                mandatory => ['name'],
+            },
+            update_template => {
+                path      => 'templates/update',
+                mandatory => ['name'],
+            },
+            publish_template => {
+                path      => 'templates/publish',
+                mandatory => ['name'],
+            },
+            delete_template => {
+                path      => 'templates/delete',
+                mandatory => ['name'],
+            },
+            render_template => {
+                path      => 'templates/render',
+                mandatory => ['name'],
             },
         };
     },

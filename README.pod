@@ -1,12 +1,14 @@
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 WebService::Mandrill - WebService::Mandrill - an interface to mandrillapp.com's RESTful Web API using Web::API
 
 =head1 VERSION
 
-version 0.5
+version 0.6
 
 =head1 SYNOPSIS
 
@@ -94,6 +96,20 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 
 =head2 inbound_raw
 
+=head2 templates
+
+=head2 add_template
+
+=head2 get_template
+
+=head2 update_template
+
+=head2 publish_template
+
+=head2 delete_template
+
+=head2 render_template
+
 =head1 INTERNALS
 
 =head2 BUILD
@@ -144,3 +160,4 @@ This is free software, licensed under:
 
   The (three-clause) BSD License
 
+=cut
