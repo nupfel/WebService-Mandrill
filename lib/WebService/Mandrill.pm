@@ -1,6 +1,5 @@
 package WebService::Mandrill;
-use strict;
-use warnings;
+
 use 5.010;
 use Mouse;
 
@@ -116,11 +115,16 @@ has 'commands' => (
     is      => 'rw',
     default => sub {
         {
-            ping         => { path => 'users/ping' },
-            ping2        => { path => 'users/ping2' },
+            # ping
+            ping  => { path => 'users/ping' },
+            ping2 => { path => 'users/ping2' },
+
+            # user
             user_info    => { path => 'users/info' },
             user_senders => { path => 'users/senders' },
-            send         => {
+
+            # message commands
+            send => {
                 path      => 'messages/send',
                 mandatory => [ 'subject', 'from_email', 'to' ],
                 wrapper   => 'message',
@@ -138,8 +142,10 @@ has 'commands' => (
                 mandatory => ['raw_message'],
             },
             search => { path => 'messages/search' },
-            tags   => { path => 'tags/list' },
-            tag    => {
+
+            # tags
+            tags => { path => 'tags/list' },
+            tag  => {
                 path      => 'tags/info',
                 mandatory => ['tag'],
             },
@@ -155,11 +161,15 @@ has 'commands' => (
                 path      => 'tags/all-time-series',
                 mandatory => ['tag'],
             },
+
+            # rejects
             rejects       => { path => 'rejects/list' },
             delete_reject => {
                 path      => 'rejects/delete',
                 mandatory => ['email']
             },
+
+            # senders
             senders        => { path => 'senders/list' },
             sender_domains => { path => 'senders/domains' },
             sender         => {
@@ -170,6 +180,8 @@ has 'commands' => (
                 path      => 'senders/time-series',
                 mandatory => ['address'],
             },
+
+            # urls
             urls        => { path => 'urls/list' },
             search_urls => {
                 path      => 'urls/search',
@@ -179,6 +191,8 @@ has 'commands' => (
                 path      => 'urls/time-series',
                 mandatory => ['url'],
             },
+
+            # webhooks
             webhooks => { path => 'webhooks/list' },
             webhook  => {
                 path      => 'webhooks/info',
@@ -196,6 +210,8 @@ has 'commands' => (
                 path      => 'webhooks/delete',
                 mandatory => ['id'],
             },
+
+            # inbounds
             inbound_domains => { path => 'inbound/domains' },
             inbound_routes  => {
                 path      => 'inbound/routes',
@@ -205,7 +221,9 @@ has 'commands' => (
                 path      => 'inbound/send-raw',
                 mandatory => ['raw_message'],
             },
-            templates => { path => 'templates/list' },
+
+            # templates
+            templates    => { path => 'templates/list' },
             add_template => {
                 path      => 'templates/add',
                 mandatory => ['name'],
@@ -224,6 +242,10 @@ has 'commands' => (
             },
             delete_template => {
                 path      => 'templates/delete',
+                mandatory => ['name'],
+            },
+            time_series_template => {
+                path      => 'templates/time-series',
                 mandatory => ['name'],
             },
             render_template => {
