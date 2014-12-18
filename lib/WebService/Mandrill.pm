@@ -1,6 +1,6 @@
 package WebService::Mandrill;
 
-use 5.010;
+use Modern::Perl;
 use Mouse;
 
 # ABSTRACT: WebService::Mandrill - an interface to mandrillapp.com's RESTful Web API using Web::API
