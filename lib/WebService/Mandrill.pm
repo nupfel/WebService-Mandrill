@@ -278,6 +278,7 @@ sub BUILD {
     $self->extension('json');
     $self->base_url('https://mandrillapp.com/api/1.0');
     $self->auth_type('hash_key');
+    $self->error_keys(['message']);
 
     return $self;
 }
