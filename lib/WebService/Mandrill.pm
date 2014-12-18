@@ -35,8 +35,6 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 
 =head2 ping
 
-=head2 ping2
-
 =head2 user_info
 
 =head2 user_senders
@@ -116,8 +114,7 @@ has 'commands' => (
     default => sub {
         {
             # ping
-            ping  => { path => 'users/ping' },
-            ping2 => { path => 'users/ping2' },
+            ping => { path => 'users/ping2' },
 
             # user
             user_info    => { path => 'users/info' },
