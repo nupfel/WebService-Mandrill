@@ -154,11 +154,11 @@ has 'commands' => (
                 path      => 'messages/parse',
                 mandatory => ['raw_message'],
             },
-            search => { path => 'messages/search' },
-            list_scheduled => { 'path' => 'messages/list-scheduled' },
+            search           => { path => 'messages/search' },
+            list_scheduled   => { path => 'messages/list-scheduled' },
             cancel_scheduled => {
                 path      => 'messages/cancel-scheduled',
-                mandatory => [ 'id' ],
+                mandatory => ['id'],
             },
             reschedule => {
                 path      => 'messages/reschedule',
@@ -274,16 +274,16 @@ has 'commands' => (
                 path      => 'templates/render',
                 mandatory => ['name'],
             },
-            
+
             # exports
-            exports => { path => 'exports/list' },
+            exports    => { path => 'exports/list' },
             get_export => {
                 path      => 'exports/info',
-                mandatory => [ 'id' ],
+                mandatory => ['id'],
             },
-            export_rejects => { path => 'exports/rejects' },
+            export_rejects   => { path => 'exports/rejects' },
             export_whitelist => { path => 'exports/whitelist' },
-            export_activity => { path => 'exports/activity' },
+            export_activity  => { path => 'exports/activity' },
         };
     },
 );
