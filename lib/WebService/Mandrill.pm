@@ -45,6 +45,12 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 
 =head2 send_raw
 
+=head2 list_scheduled
+
+=head2 cancel_scheduled
+
+=head2 reschedule
+
 =head2 parse
 
 =head2 search
@@ -107,6 +113,16 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 
 =head2 render_template
 
+=head2 exports
+
+=head2 get_export
+
+=head2 export_rejects
+
+=head2 export_whitelist
+
+=head2 export_activity
+
 =cut
 
 has 'commands' => (
@@ -139,6 +155,15 @@ has 'commands' => (
                 mandatory => ['raw_message'],
             },
             search => { path => 'messages/search' },
+            list_scheduled => { 'path' => 'messages/list-scheduled' },
+            cancel_scheduled => {
+                path      => 'messages/cancel-scheduled',
+                mandatory => [ 'id' ],
+            },
+            reschedule => {
+                path      => 'messages/reschedule',
+                mandatory => [ 'id', 'send_at' ],
+            },
 
             # tags
             tags => { path => 'tags/list' },
@@ -249,6 +274,16 @@ has 'commands' => (
                 path      => 'templates/render',
                 mandatory => ['name'],
             },
+            
+            # exports
+            exports => { path => 'exports/list' },
+            get_export => {
+                path      => 'exports/info',
+                mandatory => [ 'id' ],
+            },
+            export_rejects => { path => 'exports/rejects' },
+            export_whitelist => { path => 'exports/whitelist' },
+            export_activity => { path => 'exports/activity' },
         };
     },
 );
