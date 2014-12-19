@@ -8,7 +8,7 @@ WebService::Mandrill - WebService::Mandrill - an interface to mandrillapp.com's 
 
 =head1 VERSION
 
-version 0.7
+version 0.8
 
 =head1 SYNOPSIS
 
@@ -45,6 +45,12 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 =head2 send_template
 
 =head2 send_raw
+
+=head2 list_scheduled
+
+=head2 cancel_scheduled
+
+=head2 reschedule
 
 =head2 parse
 
@@ -107,6 +113,16 @@ Please refer to the API documentation at L<http://mandrillapp.com/api/docs/index
 =head2 delete_template
 
 =head2 render_template
+
+=head2 exports
+
+=head2 get_export
+
+=head2 export_rejects
+
+=head2 export_whitelist
+
+=head2 export_activity
 
 =head1 INTERNALS
 
