@@ -272,7 +272,10 @@ has 'commands' => (
             },
             render_template => {
                 path      => 'templates/render',
-                mandatory => ['name'],
+                mandatory => [
+                    'template_name', 'template_content.name',
+                    'template_content.content'
+                ],
             },
 
             # exports
