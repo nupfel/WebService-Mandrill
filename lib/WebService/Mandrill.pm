@@ -254,6 +254,9 @@ has 'commands' => (
                 path      => 'templates/info',
                 mandatory => ['name'],
             },
+            list_templates => {
+                path => 'templates/list',
+            },
             update_template => {
                 path      => 'templates/update',
                 mandatory => ['name'],
